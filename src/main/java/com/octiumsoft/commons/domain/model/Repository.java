@@ -12,4 +12,7 @@ public interface Repository<K, E extends AggregateRoot<K>> {
     @NotNull
     @Valid
     PagedResult<E> list(@Min(0) int pageNumber, @Min(1) int pageSize);
+
+    @Min(0)
+    long count();
 }
