@@ -2,23 +2,23 @@ package com.octiumsoft.commons.domain.model;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 public class PagedResult<E> {
     private final int pageNumber;
     private final int pageSize;
     private final long pageCount;
-    private Collection<E> items;
+    private List<E> entities;
 
     public PagedResult(@Min(0) int pageNumber,
                        @Min(1) int pageSize,
                        @Min(0) long pageCount,
-                       @NotNull Collection<E> items) {
+                       @NotNull List<E> entities) {
         this.pageNumber = pageNumber;
         this.pageSize = pageSize;
         this.pageCount = pageCount;
-        this.items = Collections.unmodifiableCollection(items);
+        this.entities = Collections.unmodifiableList(entities);
     }
 
     @Min(0)
@@ -37,8 +37,8 @@ public class PagedResult<E> {
     }
 
     @NotNull
-    public Collection<E> getItems() {
-        return items;
+    public List<E> getEntities() {
+        return entities;
     }
 
     @Override
