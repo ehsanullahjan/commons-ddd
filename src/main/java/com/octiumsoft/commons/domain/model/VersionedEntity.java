@@ -18,4 +18,12 @@ public abstract class VersionedEntity<T> extends AbstractEntity<T> {
         assert version >= 0;
         this.version = version;
     }
+
+    @Override
+    public String toString() {
+        return "VersionedEntity{" +
+               "id=" + getId() +
+               ", version=" + version +
+               '}';
+    }
 }
